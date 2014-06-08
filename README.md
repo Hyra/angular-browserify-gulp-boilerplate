@@ -10,3 +10,5 @@ Gulp tasks include watching js/sass and building, as well as a simple (live relo
 - run npm install
 - run gulp
 - Build something awesome
+
+When gulp is active, your app will be available at http://localhost:5000 and will be live reloaded when you change any SASS or JS files
