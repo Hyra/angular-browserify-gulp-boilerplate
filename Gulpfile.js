@@ -51,8 +51,8 @@ gulp.task('views', function() {
 
 gulp.task('styles', function () {
   gulp.src('./app/styles/*.scss')
-  .pipe(sass({sourceComments: 'map', onError: function(e) { console.log(e); } }))
-  // .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
+  .pipe(sass({onError: function(e) { console.log(e);}}))
+  .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
   .pipe(gulp.dest('./dist/css/'))
   .pipe(refresh(lrserver));
 });
