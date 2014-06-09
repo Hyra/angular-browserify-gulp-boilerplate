@@ -12,6 +12,11 @@ It includes some sample controllers, a service and a directive.
 
 Gulp tasks include watching js/sass and building, as well as a simple (live reloading) webserver with html5 url support
 
+Besides this, it includes sensible settings for:
+
+- .editorconfig
+- .jshintrc
+
 ## How to install
 
 Make sure you have NodeJS installed and have installed both `gulp` and `browserify` globally. After that it's easy:
