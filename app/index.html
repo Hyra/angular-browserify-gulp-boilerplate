@@ -10,13 +10,18 @@
 </head>
 <body ng-app="myApp">
 
-  <div class="panel">
-    <a ui-sref="home" class="button tiny radius">Home</a> 
-    <a ui-sref="secondary" class="button tiny radius">Secondary page</a>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="secondary">Secondary page</a></li>
+      </ul>
+    </nav>
 
     <div ui-view></div>
 
     <sample-component></sample-component>
+
   </div>
   
   <script src="/js/bundle.js"></script>
