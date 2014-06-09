@@ -1,11 +1,9 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var jshint = require('gulp-jshint');
-// var uglify = require('gulp-uglify');
-// var minifyHTML = require('gulp-minify-html');
-// var minifyCSS = require('gulp-minify-css');
-// var browserify = require('browserify');
+
 var plumber = require('gulp-plumber');
+var open = require('gulp-open');
 var browserify = require('gulpify');
 
 var concat = require('gulp-concat');
@@ -33,11 +31,6 @@ gulp.task('lint', function() {
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });
-
-// gulp.task('clean', function() {
-	// gulp.src('./dist/js', {read: false})
-	// .pipe(clean());
-// });
 
 gulp.task('views', function() {
   gulp.src('./app/index.html')
@@ -67,35 +60,6 @@ gulp.task('browserify', function() {
   .pipe(refresh(lrserver));
 });
 
-// gulp.task('minify-css', function() {
-//   gulp.src('./static/css/*.css')
-//     .pipe(minifyCSS(opts))
-//     .pipe(gulp.dest('./dist/'))
-// });
-//
-// gulp.task('minify-html', function() {
-//   gulp.src('./static/html/*.html')
-//     .pipe(minifyHTML(opts))
-//     .pipe(gulp.dest('./dist/'))
-// });
-//
-// gulp.task('imagemin', function () {
-//     gulp.src('src/image.png')
-//         .pipe(imagemin())
-//         .pipe(gulp.dest('dist'));
-// });
-//
-// //TODO add support for source maps
-// gulp.task('minify-js', function() {
-//   gulp.src('./app/js/*.js')
-//     .pipe(uglify({
-//     	// inSourceMap:
-//     	// outSourceMap: "app.js.map"
-//     }))
-//     .pipe(gulp.dest('./app/js'))
-// });
-
-// gulp.task('watch', ['clean', 'views', 'styles', 'browserify'], function() {
 gulp.task('watch', ['views', 'browserify', 'styles'], function() {
 	// Start webserver
 	server.listen(serverport);
@@ -115,7 +79,15 @@ gulp.task('watch', ['views', 'browserify', 'styles'], function() {
 	gulp.watch(['app/index.html', 'app/views/**/*.html'], [
 		'views'
 	]);
+
+  setTimeout(function() {
+    var options = {
+      url: "http://localhost:5000"
+    };
+    gulp.src("./dist/index.html")
+      .pipe(open("", options));
+  }, 666);
+  
 });
 
-// gulp.task('default', ['clean', 'views', 'styles', 'browserify', 'watch']);
-gulp.task('default', ['views', 'browserify', 'watch']);
+gulp.task('default', ['views', 'browserify', 'styles', 'watch']);
