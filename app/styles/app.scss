@@ -1,7 +1,5 @@
-@import "./node_modules/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
+@import "_variables";
+@import "./node_modules/foundation/scss/normalize.scss";
+@import "./node_modules/foundation/scss/foundation.scss";
 
-/* App Settings */
-
-.container {
-  max-width: 980px;
-}
+/* App Styles */
