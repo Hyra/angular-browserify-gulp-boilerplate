@@ -27,3 +27,20 @@ Make sure you have NodeJS installed and have installed both `gulp` and `browseri
 - Build something awesome
 
 When gulp is active, your app will be available at http://localhost:5000 and will be live reloaded when you change any SASS or JS files
+
+## Extending
+
+I tried to keep the boilerplate as bare bones as possible. This means things like Bootstrap or Foundation are not included. More often than not I find myself not using it, so the preferred way is to add it when needed, not to remove it when not.
+
+Installing it is trivial though:
+
+    npm install bootstrap-sass jquery
+
+Add the dependencies to main.js
+
+    var $ = jQuery = require('jquery');
+    require('bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown'); // Or another plugin you want
+
+Add the stylesheet to app.scss
+
+    @import "./node_modules/bootstrap-sass/vendor/assets/stylesheets/bootstrap.scss";
