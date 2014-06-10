@@ -1,15 +1,12 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var jshint = require('gulp-jshint');
-
-var plumber = require('gulp-plumber');
-var open = require('gulp-open');
-var gulpify = require('gulpify');
-
-var concat = require('gulp-concat');
-var clean = require('gulp-clean');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
+var gulp = require('gulp'),
+  gutil = require('gulp-util'),
+  jshint = require('gulp-jshint'),
+  plumber = require('gulp-plumber'),
+  gulpify = require('gulpify'),
+  concat = require('gulp-concat'),
+  clean = require('gulp-clean'),
+  sass = require('gulp-sass'),
+  autoprefixer = require('gulp-autoprefixer');
 
 var embedlr = require('gulp-embedlr'),
 	refresh = require('gulp-livereload'),
