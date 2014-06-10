@@ -10,22 +10,12 @@
 </head>
 <body ng-app="myApp">
 
-  <div class="row">
+  <a ui-sref="home">Home</a> / 
+  <a ui-sref="secondary">Secondary page</a>
 
-    <nav class="top-bar" data-topbar="">
-      <section class="top-bar-section">
-        <ul class="left show-for-large-up">
-          <li><a ui-sref="home">Home</a></li>
-          <li><a ui-sref="secondary">Secondary page</a></li>
-        </ul>
-      </section>
-    </nav>
+  <div ui-view></div>
 
-    <div ui-view></div>
-
-    <sample-component></sample-component>
-  
-  </div>
+  <sample-component></sample-component>
 
   <script src="/js/bundle.js"></script>
 

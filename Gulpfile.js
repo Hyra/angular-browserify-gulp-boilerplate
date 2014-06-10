@@ -4,7 +4,7 @@ var jshint = require('gulp-jshint');
 
 var plumber = require('gulp-plumber');
 var open = require('gulp-open');
-var browserify = require('gulpify');
+var gulpify = require('gulpify');
 
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
@@ -15,8 +15,8 @@ var embedlr = require('gulp-embedlr'),
 	refresh = require('gulp-livereload'),
 	lrserver = require('tiny-lr')(),
 	express = require('express'),
-	livereload = require('connect-livereload')
-	livereloadport = 35729,
+	livereload = require('connect-livereload'),
+  livereloadport = 35729,
 	serverport = 5000;
 
 var server = express();
@@ -53,7 +53,7 @@ gulp.task('styles', function () {
 gulp.task('browserify', function() {
   gulp.src('./app/scripts/main.js')
   .pipe(plumber())
-  .pipe(browserify('./app/scripts/main.js'))
+  .pipe(gulpify('./app/scripts/main.js'))
   .pipe(concat('bundle.js'))
   .pipe(gulp.dest('./dist/js'))
   .on('error', gutil.log)
@@ -79,14 +79,6 @@ gulp.task('watch', ['views', 'browserify', 'styles'], function() {
 	gulp.watch(['app/index.html', 'app/views/**/*.html'], [
 		'views'
 	]);
-
-  setTimeout(function() {
-    var options = {
-      url: "http://localhost:5000"
-    };
-    gulp.src("./dist/index.html")
-      .pipe(open("", options));
-  }, 666);
   
 });
 
