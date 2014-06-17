@@ -44,7 +44,7 @@ gulp.task('styles', function () {
   gulp.src('./app/styles/*.scss')
   .pipe(sass({
     onError: function(e) { console.log(e.toString()); },
-    includePaths: require('node-bourbon').includePaths
+    includePaths: require('node-neat').includePaths
   }))
   .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
   .pipe(gulp.dest('./dist/css/'))
