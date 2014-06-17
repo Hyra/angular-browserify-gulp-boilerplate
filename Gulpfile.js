@@ -6,7 +6,8 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   clean = require('gulp-clean'),
   sass = require('gulp-sass'),
-  autoprefixer = require('gulp-autoprefixer');
+  autoprefixer = require('gulp-autoprefixer'),
+  bourbon = require('node-bourbon');
 
 var embedlr = require('gulp-embedlr'),
 	refresh = require('gulp-livereload'),
@@ -41,7 +42,10 @@ gulp.task('views', function() {
 
 gulp.task('styles', function () {
   gulp.src('./app/styles/*.scss')
-  .pipe(sass({onError: function(e) { console.log(e);}}))
+  .pipe(sass({
+    onError: function(e) { console.log(e.toString()); },
+    includePaths: require('node-bourbon').includePaths
+  }))
   .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
   .pipe(gulp.dest('./dist/css/'))
   .pipe(refresh(lrserver));

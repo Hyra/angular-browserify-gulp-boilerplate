@@ -17,6 +17,7 @@
     "gulp-sass": "~0.7.2",
     "brfs": "~1.1.1",
     "angular": "~1.2.16",
-    "ui-router": "0.0.1"
+    "ui-router": "0.0.1",
+    "node-bourbon": "~1.2.3"
   }
 }
